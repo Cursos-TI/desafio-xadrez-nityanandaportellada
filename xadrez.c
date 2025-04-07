@@ -5,7 +5,7 @@
 #define MOVIMENTO_TORRE 5   // A Torre vai se mover até 5 casas para a direita
 #define MOVIMENTO_RAINHA 8  // A Rainha vai se mover até 8 casas para a esquerda
 
-// Nível Novato - Movimentação das Peças
+// algoritimo de movimentação de peças - bispo
 void movimentarBispo(int posX, int posY) {
     printf("\nMovimento do Bispo (5 casas na diagonal superior direita):\n");
     for (int i = 1; i <= MOVIMENTO_BISPO; i++) {
@@ -13,7 +13,7 @@ void movimentarBispo(int posX, int posY) {
             printf("Bispo pode se mover para (%d, %d) - Cima Direita\n", posX + i, posY + i);
     }
 }
-
+// Movimento da torre
 void movimentarTorre(int posX, int posY) {
     printf("\nMovimento da Torre (5 casas para a direita):\n");
     for (int i = 1; i <= MOVIMENTO_TORRE; i++) {
@@ -21,7 +21,7 @@ void movimentarTorre(int posX, int posY) {
             printf("Torre pode se mover para (%d, %d) - Direita\n", posX + i, posY);
     }
 }
-
+// Movimento da Rainha
 void movimentarRainha(int posX, int posY) {
     printf("\nMovimento da Rainha (8 casas para a esquerda):\n");
     for (int i = 1; i <= MOVIMENTO_RAINHA; i++) {
@@ -30,7 +30,7 @@ void movimentarRainha(int posX, int posY) {
     }
 }
 
-// Nível Aventureiro - Movimentação do Cavalo (em L)
+// Movimentação do Cavalo (em L)
 void movimentarCavalo(int posX, int posY) {
     printf("\nMovimento do Cavalo (em L):\n");
 
@@ -53,7 +53,7 @@ void movimentarCavalo(int posX, int posY) {
     }
 }
 
-// Nível Mestre - Movimentação Recursiva do Bispo
+// Movimentação Recursiva do Bispo
 void movimentarBispoRecursivo(int posX, int posY, int casasRestantes) {
     if (casasRestantes > 0 && posX + 1 <= LIMITE_TABULEIRO && posY + 1 <= LIMITE_TABULEIRO) {
         printf("Bispo pode se mover para (%d, %d)\n", posX + 1, posY + 1);
@@ -88,17 +88,17 @@ void movimentarCavaloMestre(int posX, int posY) {
 int main() {
     int posX = 4, posY = 4;  // Posição inicial das peças no tabuleiro
 
-    // Nível Novato - Movimentação das Peças
+    // Movimentação das Peças
     printf("### Nível Novato ###\n");
     movimentarBispo(posX, posY);
     movimentarTorre(posX, posY);
     movimentarRainha(posX, posY);
 
-    // Nível Aventureiro - Movimentação do Cavalo
+    // Movimentação do Cavalo
     printf("\n### Nível Aventureiro ###\n");
     movimentarCavalo(posX, posY);
 
-    // Nível Mestre - Movimentação Recursiva do Bispo
+    // Movimentação Recursiva do Bispo
     printf("\n### Nível Mestre ###\n");
     movimentarBispoRecursivo(posX, posY, MOVIMENTO_BISPO);
 
